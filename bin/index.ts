@@ -23,9 +23,12 @@ if (!fs.existsSync(inputFilePath)) {
 (async () => {
     const { stdout, stderr } = await dumpSyms(inputFilePath);
     
-    console.log(inputFilePath);
     console.log(stdout);
-    console.log(stderr);
+    console.error(stderr);
+    
+    if (stderr) {
+        process.exit(-1);
+    }
 })();
 
 function logErrorAndExit(message: string) {
