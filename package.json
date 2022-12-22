@@ -1,0 +1,31 @@
+{
+  "name": "@bugsplat/dump-syms",
+  "version": "1.0.0",
+  "description": "Utility for running Breakpad's dump_syms via Node.js",
+  "main": "index.js",
+  "bin": {
+    "dump-syms": "./dist/bin/index.js"
+  },
+  "scripts": {
+    "build": "tsc && copyfiles bin/LICENSE bin/linux/* dist",
+    "test": "ts-node ./bin/index.ts ./test/my-ubuntu-crasher"
+  },
+  "keywords": [
+    "crashpad",
+    "breakpad",
+    "symbols",
+    "sym",
+    "pdb",
+    "so",
+    "dll",
+    "dSYM"
+  ],
+  "author": "BugSplat",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "copyfiles": "^2.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
