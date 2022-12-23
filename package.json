@@ -4,7 +4,7 @@
   "description": "Utility for running Breakpad's dump_syms via Node.js",
   "main": "./dist/index.js",
   "bin": {
-    "dump-syms": "./dist/bin/index.js"
+    "node-dump-syms": "./dist/bin/index.js"
   },
   "files": [
     "dist"
