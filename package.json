@@ -11,7 +11,9 @@
   ],
   "scripts": {
     "build": "tsc && copyfiles bin/LICENSE bin/linux/* dist",
-    "test": "ts-node ./bin/index.ts ./test/my-ubuntu-crasher"
+    "test": "ts-node ./bin/index.ts ./test/my-ubuntu-crasher",
+    "prerelease": "npm run build",
+    "release": "npm publish --access public"
   },
   "keywords": [
     "crashpad",
