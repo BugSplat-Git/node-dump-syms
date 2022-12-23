@@ -1,3 +1,1 @@
-import { dumpSyms } from "./src/dump-syms";
-
-export default dumpSyms;
+export { dumpSyms } from './src/dump-syms';
