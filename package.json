@@ -1,5 +1,5 @@
 {
-  "name": "@bugsplat/dump-syms",
+  "name": "node-dump-syms",
   "version": "1.0.0",
   "description": "Utility for running Breakpad's dump_syms via Node.js",
   "main": "./dist/index.js",
