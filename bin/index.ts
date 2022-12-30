@@ -5,7 +5,8 @@ import fs from 'fs';
 
 const allowedFileExtensions = [
     '',
-    '.so'
+    '.so',
+    '.node'
 ];
 
 const { argv } = process;

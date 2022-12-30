@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "tsc && copyfiles bin/LICENSE bin/linux/* dist",
-    "test": "ts-node ./bin/index.ts ./test/my-ubuntu-crasher",
+    "test": "ts-node ./node_modules/.bin/jasmine",
     "prerelease": "npm run build",
     "release": "npm publish --access public"
   },
@@ -28,8 +28,10 @@
   "author": "BugSplat",
   "license": "MIT",
   "devDependencies": {
+    "@types/jasmine": "^4.3.1",
     "@types/node": "^18.11.17",
     "copyfiles": "^2.4.1",
+    "jasmine": "^4.5.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   }
