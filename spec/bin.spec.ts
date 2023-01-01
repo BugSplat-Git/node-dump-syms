@@ -4,10 +4,10 @@ import util from 'util';
 import { pit } from "./support/platform-spec";
 const exec = util.promisify(child_process.exec);
 const testScript = path.join(__dirname, '..', 'bin', 'index.ts');
-const binary = path.join(__dirname, 'support', 'darwin', 'addon.node');
 
 describe('command line', () => {
     pit('darwin', 'should dump symbols for macos', async () => {
+        const binary = path.join(__dirname, 'support', 'darwin', 'addon.node');
         const { stdout, stderr } = await exec(`ts-node ${testScript} ${binary}`);
 
         expect(stderr).not.toBeDefined();
@@ -15,6 +15,7 @@ describe('command line', () => {
     });
 
     pit('linux', 'should dump symbols for linux', async () => {
+        const binary = path.join(__dirname, 'support', 'linux', 'my-ubuntu-crasher');
         const { stdout, stderr } = await exec(`ts-node ${testScript} ${binary}`);
 
         expect(stderr).not.toBeDefined();
