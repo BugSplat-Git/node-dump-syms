@@ -1,1 +1,1 @@
-export { dumpSyms } from './src/dump-syms';
+export * from './src/dump-syms';
