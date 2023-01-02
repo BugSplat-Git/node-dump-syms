@@ -1,12 +1,12 @@
 import * as child_process from 'child_process';
 import path from 'path';
 import util from 'util';
-import { pit } from "./support/platform-spec";
+import { platformSpec } from "./support/platform-spec";
 const exec = util.promisify(child_process.exec);
 const testScript = path.join(__dirname, '..', 'bin', 'index.ts');
 
 describe('command line', () => {
-    pit('darwin', 'should dump symbols for macos', async () => {
+    platformSpec('darwin', 'should dump symbols for macos', async () => {
         const binary = path.join(__dirname, 'support', 'darwin', 'addon.node');
         const { stdout, stderr } = await exec(`ts-node ${testScript} ${binary}`);
 
@@ -14,7 +14,7 @@ describe('command line', () => {
         expect(stdout).toContain('MODULE mac arm64 B7EBC13028993DE9A52CCAC5C2BB11120 addon.node');
     });
 
-    pit('linux', 'should dump symbols for linux', async () => {
+    platformSpec('linux', 'should dump symbols for linux', async () => {
         const binary = path.join(__dirname, 'support', 'linux', 'my-ubuntu-crasher');
         const { stdout, stderr } = await exec(`ts-node ${testScript} ${binary}`);
 
