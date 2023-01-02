@@ -1,6 +1,6 @@
 {
   "name": "node-dump-syms",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Utility for running Breakpad's dump_syms via Node.js",
   "main": "./dist/index.js",
   "bin": {
