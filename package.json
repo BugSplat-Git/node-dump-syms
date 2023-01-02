@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && copyfiles bin/LICENSE bin/linux/* dist",
+    "build": "tsc && copyfiles bin/LICENSE bin/linux/* bin/darwin/* dist",
     "test": "ts-node ./node_modules/.bin/jasmine",
     "prerelease": "npm run build",
     "release": "npm publish --access public"
