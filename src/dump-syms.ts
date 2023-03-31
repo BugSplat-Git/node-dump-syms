@@ -4,16 +4,21 @@ import path from 'path';
 import util from 'util';
 const execAsync = util.promisify(exec);
 
-export async function dumpSyms(filePath: string): Promise<{ stdout: string, stderr: string}> {
-    return execAsync(createCommand(filePath));
+export enum Platform {
+    darwin = 'darwin',
+    amazonlinux = 'amazonlinux',
+    bullseye = 'bullseye',
 }
 
-export function dumpSymsSync(filePath: string): Buffer {
-    return execSync(createCommand(filePath));
+export async function dumpSyms(inputPath: string, outputPath: string, platform: Platform): Promise<{ stdout: string, stderr: string}> {
+    return execAsync(createCommand(inputPath, outputPath, platform));
 }
 
-function createCommand(filePath: string): string {
-    const { platform } = process;
+export function dumpSymsSync(filePath: string, outputPath: string, platform: Platform): Buffer {
+    return execSync(createCommand(filePath, outputPath, platform));
+}
+
+function createCommand(inputPath: string, outputPath: string, platform: Platform): string {
     const dumpSymsPath = path.join(__dirname, `../bin/${platform}/dump_syms`);
     const supported = fs.existsSync(dumpSymsPath);
   
@@ -21,6 +26,6 @@ function createCommand(filePath: string): string {
         throw new Error(`Platform: ${platform} is not supported`);
     }
  
-    return `${dumpSymsPath} ${filePath}`;
+    return `${dumpSymsPath} ${inputPath} > ${outputPath}`;
 }
 
