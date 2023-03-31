@@ -34,23 +34,31 @@ npm i -g node-dump-syms
 If you installed `node-dump-syms` globally you can invoke it in via a terminal window.
 
 ```sh
-node-dump-syms /path/to/file.so
+node-dump-syms /path/to/file.so /output/file.so.sym darwin
 ```
+
+The first argument is the path to your executable or library file. The second argument is the path to the output file. The third argument is the platform. The platform can be one of the following: `darwin`, `amazonlinux`, `bullseye`.
+
+For additional platform support, please [open an issue](https://github.com/BugSplat-Git/node-dump-syms/issues/new).
 
 ## 📚 Library
 
 Import or require `dumpSyms`.
 
 ```ts
-import { dumpSyms } from 'node-dump-syms'
+import { dumpSyms, dumpSymsSync } from 'node-dump-syms'
 ```
 
-Await a call to dumpSyms, providing it a path to your executable or library file.
+Await a call to `dumpSyms`, providing it a path to your executable or library file, an output path for the `.sym` file, and the `dump_syms` platform binary you'd like to use.
 
+```ts
+await dumpSyms('/path/to/file.so', '/output/file.so.sym', 'darwin');
 ```
-const { stdout, stderr } = await dumpSyms('/path/to/file.so');
-console.log(stdout);
-console.error(stderr);
+
+You can also call `dumpSymsSync` to perform the same operation synchronously.
+
+```ts
+dumpSymsSync('/path/to/file.so', '/output/file.so.sym', 'darwin');
 ```
 
 ## 🐛 About
