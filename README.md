@@ -1,66 +1,121 @@
-[![bugsplat-github-banner-basic-outline](https://user-images.githubusercontent.com/20464226/149019306-3186103c-5315-4dad-a499-4fd1df408475.png)](https://bugsplat.com)
-<br/>
-# <div align="center">BugSplat</div> 
-### **<div align="center">Crash and error reporting built for busy developers.</div>**
-<div align="center">
-    <a href="https://twitter.com/BugSplatCo">
-        <img alt="Follow @bugsplatco on Twitter" src="https://img.shields.io/twitter/follow/bugsplatco?label=Follow%20BugSplat&style=social">
-    </a>
-    <a href="https://discord.gg/K4KjjRV5ve">
-        <img alt="Join BugSplat on Discord" src="https://img.shields.io/discord/664965194799251487?label=Join%20Discord&logo=Discord&style=social">
-    </a>
-</div>
+# node-dump-syms
 
-## 👋 Introduction
+**node-dump-syms:** Neon wrapper for Mozilla's dump_syms
 
-node-dump-syms is a thin wrapper around the [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/) dump_syms utility that allows dump_syms to be added to your project via [npm](https://www.npmjs.com/). This package can be invoked via the `node-dump-syms` command-line command, or used as a library by importing `dumpSyms`.
+This project was bootstrapped by [create-neon](https://www.npmjs.com/package/create-neon).
 
-## 🏗️ Installation
+## Installing node-dump-syms
 
-Install `node-dump-syms` as a package dependency.
+Installing node-dump-syms requires a [supported version of Node and Rust](https://github.com/neon-bindings/neon#platform-support).
+
+You can install the project with npm. In the project directory, run:
 
 ```sh
-npm i node-dump-syms
+$ npm install
 ```
 
-Or install `node-dump-syms` globally as a command-line tool.
+This fully installs the project, including installing any dependencies and running the build.
+
+## Building node-dump-syms
+
+If you have already installed the project and only want to run the build, run:
 
 ```sh
-npm i -g node-dump-syms
+$ npm run build
 ```
 
-## 🧑‍💻 Command
+This command uses the [cargo-cp-artifact](https://github.com/neon-bindings/cargo-cp-artifact) utility to run the Rust build and copy the built library into `./index.node`.
 
-If you installed `node-dump-syms` globally you can invoke it in via a terminal window.
+## Exploring node-dump-syms
+
+After building node-dump-syms, you can explore its exports at the Node REPL:
 
 ```sh
-node-dump-syms /path/to/file.so /output/file.so.sym darwin
+$ npm install
+$ node
+> require('.').hello()
+"hello node"
 ```
 
-The first argument is the path to your executable or library file. The second argument is the path to the output file. The third argument is the platform. The platform can be one of the following: `darwin`, `amazonlinux`, `bullseye`.
+## Available Scripts
 
-For additional platform support, please [open an issue](https://github.com/BugSplat-Git/node-dump-syms/issues/new).
+In the project directory, you can run:
 
-## 📚 Library
+### `npm install`
 
-Import or require `dumpSyms`.
+Installs the project, including running `npm run build`.
 
-```ts
-import { dumpSyms, dumpSymsSync } from 'node-dump-syms'
+### `npm build`
+
+Builds the Node addon (`index.node`) from source.
+
+Additional [`cargo build`](https://doc.rust-lang.org/cargo/commands/cargo-build.html) arguments may be passed to `npm build` and `npm build-*` commands. For example, to enable a [cargo feature](https://doc.rust-lang.org/cargo/reference/features.html):
+
+```
+npm run build -- --feature=beetle
 ```
 
-Await a call to `dumpSyms`, providing it a path to your executable or library file, an output path for the `.sym` file, and the `dump_syms` platform binary you'd like to use.
+#### `npm build-debug`
 
-```ts
-await dumpSyms('/path/to/file.so', '/output/file.so.sym', 'darwin');
+Alias for `npm build`.
+
+#### `npm build-release`
+
+Same as [`npm build`](#npm-build) but, builds the module with the [`release`](https://doc.rust-lang.org/cargo/reference/profiles.html#release) profile. Release builds will compile slower, but run faster.
+
+### `npm test`
+
+Runs the unit tests by calling `cargo test`. You can learn more about [adding tests to your Rust code](https://doc.rust-lang.org/book/ch11-01-writing-tests.html) from the [Rust book](https://doc.rust-lang.org/book/).
+
+## Project Layout
+
+The directory structure of this project is:
+
+```
+node-dump-syms/
+├── Cargo.toml
+├── README.md
+├── index.node
+├── package.json
+├── src/
+|   └── lib.rs
+└── target/
 ```
 
-You can also call `dumpSymsSync` to perform the same operation synchronously.
+### Cargo.toml
 
-```ts
-dumpSymsSync('/path/to/file.so', '/output/file.so.sym', 'darwin');
-```
+The Cargo [manifest file](https://doc.rust-lang.org/cargo/reference/manifest.html), which informs the `cargo` command.
 
-## 🐛 About
+### README.md
 
-[BugSplat](https://bugsplat.com) is a software crash and error reporting service with support for [Qt](https://docs.bugsplat.com/introduction/getting-started/integrations/cross-platform/qt), [Linux](https://docs.bugsplat.com/introduction/getting-started/integrations/desktop/linux), [Android](https://docs.bugsplat.com/introduction/getting-started/integrations/mobile/android) and [many more](https://docs.bugsplat.com/introduction/getting-started/integrations). BugSplat automatically captures critical diagnostic data such as stack traces, log files, and other runtime information. BugSplat also provides automated incident notifications, a convenient dashboard for monitoring trends and prioritizing engineering efforts, and integrations with popular development tools to maximize productivity and ship more profitable software.
+This file.
+
+### index.node
+
+The Node addon—i.e., a binary Node module—generated by building the project. This is the main module for this package, as dictated by the `"main"` key in `package.json`.
+
+Under the hood, a [Node addon](https://nodejs.org/api/addons.html) is a [dynamically-linked shared object](https://en.wikipedia.org/wiki/Library_(computing)#Shared_libraries). The `"build"` script produces this file by copying it from within the `target/` directory, which is where the Rust build produces the shared object.
+
+### package.json
+
+The npm [manifest file](https://docs.npmjs.com/cli/v7/configuring-npm/package-json), which informs the `npm` command.
+
+### src/
+
+The directory tree containing the Rust source code for the project.
+
+### src/lib.rs
+
+The Rust library's main module.
+
+### target/
+
+Binary artifacts generated by the Rust build.
+
+## Learn More
+
+To learn more about Neon, see the [Neon documentation](https://neon-bindings.com).
+
+To learn more about Rust, see the [Rust documentation](https://www.rust-lang.org).
+
+To learn more about Node, see the [Node documentation](https://nodejs.org).

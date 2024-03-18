@@ -1,0 +1,10 @@
+/Users/bobby/Desktop/bugsplat/node-dump-syms-2/target/release/deps/librange_collections-1806507b2dca1eed.rmeta: /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/lib.rs /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/merge_state.rs /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/iterators.rs /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/range_set.rs
+
+/Users/bobby/Desktop/bugsplat/node-dump-syms-2/target/release/deps/librange_collections-1806507b2dca1eed.rlib: /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/lib.rs /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/merge_state.rs /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/iterators.rs /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/range_set.rs
+
+/Users/bobby/Desktop/bugsplat/node-dump-syms-2/target/release/deps/range_collections-1806507b2dca1eed.d: /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/lib.rs /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/merge_state.rs /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/iterators.rs /Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/range_set.rs
+
+/Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/lib.rs:
+/Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/merge_state.rs:
+/Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/iterators.rs:
+/Users/bobby/.cargo/registry/src/index.crates.io-6f17d22bba15001f/range-collections-0.2.4/src/range_set.rs:
