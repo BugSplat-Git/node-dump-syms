@@ -27,7 +27,7 @@
   "binary": {
     "module_name": "index",
     "module_path": "./dist/native",
-    "host": "https://github.com/BugSplat-Git/node-dump-syms/releases/download/",
+    "host": "https://github.com/BugSplat-Git/node-dump-syms-test/releases/download/",
     "remote_path": "v{version}",
     "package_name": "{node_abi}-{platform}-{arch}.tar.gz"
   },
@@ -46,7 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BugSplat-Git/node-dump-syms.git"
+    "url": "https://github.com/BugSplat-Git/node-dump-syms-test.git"
   },
   "keywords": [
     "breakpad",
