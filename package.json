@@ -15,7 +15,10 @@
     "build:rust-release": "npm run build:rust -- --release",
     "build:tsc": "tsc",
     "install": "npm run build-release",
-    "test": "cargo test"
+    "pretest": "rimraf out && mkdirp out",
+    "test": "npm run test:rust && npm run test:tsc",
+    "test:rust": "cargo test",
+    "test:tsc": "ts-node ./node_modules/.bin/jasmine"
   },
   "files": [
     "dist"
@@ -23,10 +26,13 @@
   "author": "@bobbyg603",
   "license": "MIT",
   "devDependencies": {
+    "@types/jasmine": "^5.1.4",
     "@types/node": "^20.11.29",
     "cargo-cp-artifact": "^0.1",
     "copyfiles": "^2.4.1",
+    "jasmine": "^5.1.0",
     "mkdirp": "^3.0.1",
+    "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.2"
   },

@@ -89,7 +89,7 @@ mod tests {
     #[test]
     fn test_missing_pe() {
         let tmp_dir = Builder::new().prefix("no_pe").tempdir().unwrap();
-        let basic64 = PathBuf::from("./test_data/windows/basic64.pdb");
+        let basic64 = PathBuf::from("./spec/test_data/windows/basic64.pdb");
         let tmp_file = tmp_dir.path().join("basic64.pdb");
         let tmp_out = tmp_dir.path().join("output.sym");
 
@@ -122,7 +122,7 @@ mod tests {
     #[test]
     fn test_missing_cfi() {
         let tmp_dir = Builder::new().prefix("missing_cfi").tempdir().unwrap();
-        let basic64 = PathBuf::from("./test_data/windows/basic64.pdb");
+        let basic64 = PathBuf::from("./spec/test_data/windows/basic64.pdb");
         let tmp_file = tmp_dir.path().join("basic64.pdb");
         let tmp_out = tmp_dir.path().join("output.sym");
 
@@ -150,9 +150,9 @@ mod tests {
     #[test]
     fn test_missing_pe_but_in_dir() {
         let tmp_dir = Builder::new().prefix("no_pe").tempdir().unwrap();
-        let basic64_pdb = PathBuf::from("./test_data/windows/basic64.pdb");
+        let basic64_pdb = PathBuf::from("./spec/test_data/windows/basic64.pdb");
         let tmp_pdb = tmp_dir.path().join("basic64.pdb");
-        let basic64_dll = PathBuf::from("./test_data/windows/basic64.dll");
+        let basic64_dll = PathBuf::from("./spec/test_data/windows/basic64.dll");
         let tmp_dll = tmp_dir.path().join("basic64.dll");
         let tmp_out = tmp_dir.path().join("output.sym");
 
@@ -186,7 +186,7 @@ mod tests {
     #[test]
     fn test_elf_full() {
         let tmp_dir = Builder::new().prefix("full").tempdir().unwrap();
-        let full = PathBuf::from("./test_data/linux/basic.full");
+        let full = PathBuf::from("./spec/test_data/linux/basic.full");
         let tmp_out = tmp_dir.path().join("output.sym");
 
         let action = Action::Dump(Config {
@@ -207,7 +207,7 @@ mod tests {
         action.action(&[full.to_str().unwrap()]).unwrap();
 
         let new = read_output(&tmp_out);
-        let basic = read_input("./test_data/linux/basic.full.sym");
+        let basic = read_input("./spec/test_data/linux/basic.full.sym");
 
         assert_eq!(basic, new);
     }
@@ -215,7 +215,7 @@ mod tests {
     #[test]
     fn test_elf_full_with_inlines() {
         let tmp_dir = Builder::new().prefix("full").tempdir().unwrap();
-        let full = PathBuf::from("./test_data/linux/basic.full");
+        let full = PathBuf::from("./spec/test_data/linux/basic.full");
         let tmp_out = tmp_dir.path().join("output.sym");
 
         let action = Action::Dump(Config {
@@ -236,7 +236,7 @@ mod tests {
         action.action(&[full.to_str().unwrap()]).unwrap();
 
         let new = read_output(&tmp_out);
-        let basic = read_input("./test_data/linux/basic.full.inlines.sym");
+        let basic = read_input("./spec/test_data/linux/basic.full.inlines.sym");
 
         assert_eq!(basic, new);
     }
@@ -244,8 +244,8 @@ mod tests {
     #[test]
     fn test_elf_stripped_dbg() {
         let tmp_dir = Builder::new().prefix("stripped_dbg").tempdir().unwrap();
-        let stripped = PathBuf::from("./test_data/linux/basic.stripped");
-        let dbg = PathBuf::from("./test_data/linux/basic.dbg");
+        let stripped = PathBuf::from("./spec/test_data/linux/basic.stripped");
+        let dbg = PathBuf::from("./spec/test_data/linux/basic.dbg");
         let tmp_out = tmp_dir.path().join("output.sym");
 
         let action = Action::Dump(Config {
@@ -273,7 +273,7 @@ mod tests {
             .into_iter()
             .map(|s| re.replace(&s, "<.plt ELF section in>").to_string())
             .collect();
-        let basic = read_input("./test_data/linux/basic.full.inlines.sym");
+        let basic = read_input("./spec/test_data/linux/basic.full.inlines.sym");
         let basic: Vec<_> = basic
             .into_iter()
             .map(|s| re.replace(&s, "<.plt ELF section in>").to_string())
@@ -285,8 +285,8 @@ mod tests {
     #[test]
     fn test_elf_dbg_stripped() {
         let tmp_dir = Builder::new().prefix("stripped_dbg").tempdir().unwrap();
-        let stripped = PathBuf::from("./test_data/linux/basic.stripped");
-        let dbg = PathBuf::from("./test_data/linux/basic.dbg");
+        let stripped = PathBuf::from("./spec/test_data/linux/basic.stripped");
+        let dbg = PathBuf::from("./spec/test_data/linux/basic.dbg");
         let tmp_out = tmp_dir.path().join("output.sym");
 
         let action = Action::Dump(Config {
@@ -309,7 +309,7 @@ mod tests {
             .unwrap();
 
         let new = read_output(&tmp_out);
-        let basic = read_input("./test_data/linux/basic.dbg.sym");
+        let basic = read_input("./spec/test_data/linux/basic.dbg.sym");
 
         assert_eq!(basic, new);
     }
@@ -317,7 +317,7 @@ mod tests {
     #[test]
     fn test_elf_dwz_with_inlines() {
         let tmp_dir = Builder::new().prefix("dwz").tempdir().unwrap();
-        let full = PathBuf::from("./test_data/linux/basic.dwz");
+        let full = PathBuf::from("./spec/test_data/linux/basic.dwz");
         let tmp_out = tmp_dir.path().join("output.sym");
 
         let action = Action::Dump(Config {
@@ -338,7 +338,7 @@ mod tests {
         action.action(&[full.to_str().unwrap()]).unwrap();
 
         let new = read_output(&tmp_out);
-        let basic = read_input("./test_data/linux/basic.dwz.inlines.sym");
+        let basic = read_input("./spec/test_data/linux/basic.dwz.inlines.sym");
 
         assert_eq!(basic, new);
     }
@@ -346,7 +346,7 @@ mod tests {
     #[test]
     fn test_elf_minidebuginfo() {
         let tmp_dir = Builder::new().prefix("minidebuginfo").tempdir().unwrap();
-        let minidebuginfo = PathBuf::from("./test_data/linux/basic.minidebuginfo");
+        let minidebuginfo = PathBuf::from("./spec/test_data/linux/basic.minidebuginfo");
         let tmp_out = tmp_dir.path().join("output.sym");
 
         let action = Action::Dump(Config {
@@ -367,7 +367,7 @@ mod tests {
         action.action(&[minidebuginfo.to_str().unwrap()]).unwrap();
 
         let new = read_output(&tmp_out);
-        let basic = read_input("./test_data/linux/basic.minidebuginfo.sym");
+        let basic = read_input("./spec/test_data/linux/basic.minidebuginfo.sym");
 
         assert_eq!(basic, new);
     }
