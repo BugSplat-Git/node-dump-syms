@@ -23,7 +23,8 @@
     "upload-binary": "npm run build && node-pre-gyp package && node-pre-gyp-github publish"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "binary": {
     "module_name": "index",
