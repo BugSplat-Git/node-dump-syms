@@ -23,7 +23,7 @@ jobs:
     - name: Install dependencies
       run: |
         npm ci
-        npm i -g @mapbox/node-pre-gyp node-pre-gyp-github
+        npm i -g @mapbox/node-pre-gyp @bugsplat/node-pre-gyp-github
     - name: Build native addon with neon
       run: npm run build
     - name: Publish to GitHub
