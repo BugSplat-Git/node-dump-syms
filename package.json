@@ -8,6 +8,7 @@
     "prestart": "npm run build:debug",
     "prebuild": "mkdirp dist",
     "postbuild": "copyfiles index.node dist",
+    "postbuild:debug": "copyfiles index.node dist",
     "build": "npm run build:tsc && npm run build:rust-release",
     "build:debug": "npm run build:tsc && npm run build:rust-debug",
     "build:rust": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
