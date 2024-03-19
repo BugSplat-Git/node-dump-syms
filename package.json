@@ -2,20 +2,33 @@
   "name": "node-dump-syms",
   "version": "3.0.0",
   "description": "Neon wrapper for Mozilla's dump_syms",
-  "main": "index.node",
+  "main": "index.ts",
   "scripts": {
-    "start": "node index.js RUST_BACKTRACE=1",
-    "prestart": "npm run build-release",
-    "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
-    "build-debug": "npm run build --",
-    "build-release": "npm run build -- --release",
+    "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/my-ubuntu-crasher ./out.sym",
+    "prestart": "npm run build:debug",
+    "prebuild": "mkdirp dist",
+    "postbuild": "copyfiles index.node dist",
+    "build": "npm run build:tsc && npm run build:rust-release",
+    "build:debug": "npm run build:tsc && npm run build:rust-debug",
+    "build:rust": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
+    "build:rust-debug": "npm run build:rust --",
+    "build:rust-release": "npm run build:rust -- --release",
+    "build:tsc": "tsc",
     "install": "npm run build-release",
     "test": "cargo test"
   },
+  "files": [
+    "dist"
+  ],
   "author": "@bobbyg603",
   "license": "MIT",
   "devDependencies": {
-    "cargo-cp-artifact": "^0.1"
+    "@types/node": "^20.11.29",
+    "cargo-cp-artifact": "^0.1",
+    "copyfiles": "^2.4.1",
+    "mkdirp": "^3.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
   },
   "repository": {
     "type": "git",

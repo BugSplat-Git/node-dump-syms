@@ -121,8 +121,8 @@ fn dump_symbols_wrapper(mut cx: FunctionContext) -> JsResult<JsUndefined> {
 // A Neon module exporting the wrapper function
 #[neon::main]
 fn main(mut cx: ModuleContext) -> NeonResult<()> {
-    simple_logger::init().unwrap();
-    log::info!("This is an info message");
+    //simple_logger::init().unwrap();
+    //log::info!("This is an info message");
     cx.export_function("dumpSymbols", dump_symbols_wrapper)?;
     Ok(())
 }

@@ -3,3 +3,5 @@ out
 node_modules
 .DS_Store
 target
+index.node
+out.sym
