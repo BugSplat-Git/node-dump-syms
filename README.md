@@ -15,6 +15,12 @@
 
 node-dump-syms is a thin wrapper around the Mozilla [dump_syms](https://crates.io/crates/dump_syms) crate that allows dump_syms to be added to your project via [npm](https://www.npmjs.com/). This package can be invoked via the `node-dump-syms` command-line command, or used as a library by importing `dumpSyms`.
 
+## ✅ Prerequisites
+
+This repo provides prebuilt native addons for node.js 18.x and 20.x on Windows, macOS, and Ubuntu Linux. If you are using a different version of Node.js or a different OS, you will need to build the native addon from source which requires the [rust](https://www.rust-lang.org/tools/install) toolchain. Once you have installed rust, you can build the native addon from source by re-running `npm i`.
+
+If you would like to request a prebuilt binary for a different version of Node.js or a different OS, please open an [issue](https://github.com/BugSplat-Git/node-dump-syms/issues).
+
 ## 🏗️ Installation
 
 Install `node-dump-syms` as a package dependency.
