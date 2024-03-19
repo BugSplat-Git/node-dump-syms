@@ -4,7 +4,7 @@
   "description": "Neon wrapper for Mozilla's dump_syms",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/my-ubuntu-crasher ./out.sym",
+    "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/test_data/linux/my-ubuntu-crasher ./out.sym",
     "prestart": "npm run build:debug",
     "prebuild": "mkdirp dist",
     "postbuild": "copyfiles index.node dist",
@@ -14,7 +14,6 @@
     "build:rust-debug": "npm run build:rust --",
     "build:rust-release": "npm run build:rust -- --release",
     "build:tsc": "tsc",
-    "install": "npm run build-release",
     "pretest": "rimraf out && mkdirp out",
     "test": "npm run test:rust && npm run test:tsc",
     "test:rust": "cargo test",
