@@ -6,23 +6,31 @@
   "scripts": {
     "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/test_data/linux/my-ubuntu-crasher ./out.sym",
     "prestart": "npm run build:debug",
-    "prebuild": "mkdirp dist",
-    "postbuild": "copyfiles index.node dist",
-    "postbuild:debug": "copyfiles index.node dist",
+    "prebuild": "mkdirp dist && mkdirp native",
+    "postbuild": "copyfiles native/index.node dist",
+    "postbuild:debug": "copyfiles native/index.node dist",
     "build": "npm run build:tsc && npm run build:rust-release",
     "build:debug": "npm run build:tsc && npm run build:rust-debug",
-    "build:rust": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
+    "build:rust": "cargo-cp-artifact -nc native/index.node -- cargo build --message-format=json-render-diagnostics",
     "build:rust-debug": "npm run build:rust --",
     "build:rust-release": "npm run build:rust -- --release",
     "build:tsc": "tsc",
     "pretest": "rimraf out && mkdirp out",
     "test": "npm run test:rust && npm run test:tsc",
     "test:rust": "cargo test",
-    "test:tsc": "ts-node ./node_modules/.bin/jasmine"
+    "test:tsc": "ts-node ./node_modules/.bin/jasmine",
+    "upload-binary": "npm run build && node-pre-gyp package && node-pre-gyp-github publish"
   },
   "files": [
     "dist"
   ],
+  "binary": {
+    "module_name": "index",
+    "module_path": "./dist/native",
+    "host": "https://github.com/BugSplat-Git/node-dump-syms/releases/download/",
+    "remote_path": "v{version}",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz"
+  },
   "author": "@bobbyg603",
   "license": "MIT",
   "devDependencies": {
@@ -38,7 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BugSplat-Git/node-dump-syms.git"
+    "url": "https://github.com/BugSplat-Git/node-dump-syms.git"
   },
   "keywords": [
     "breakpad",
