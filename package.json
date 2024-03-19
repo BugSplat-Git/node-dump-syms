@@ -19,7 +19,7 @@
     "test": "npm run test:rust && npm run test:tsc",
     "test:rust": "cargo test",
     "test:tsc": "ts-node ./node_modules/.bin/jasmine",
-    "install": "node-pre-gyp install --fallback-to-build=false || npm run build || echo \"WARNING: @bugsplat/symbol-upload build failed, please install rust toolchain and reinstall to use dump_syms functionality\"",
+    "install": "node-pre-gyp install --fallback-to-build=false || npm run build",
     "upload-binary": "npm run build && node-pre-gyp package && node-pre-gyp-github publish"
   },
   "files": [
