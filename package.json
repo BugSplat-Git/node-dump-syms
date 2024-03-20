@@ -9,6 +9,7 @@
     "prebuild": "npm run clean",
     "build": "npm run build:tsc && npm run build:rust-release",
     "build:client": "npm run build:rust-release && npm run copy:rust",
+    "postbuild:client": "npx rimraf target && npx rimraf native",
     "build:debug": "npm run build:tsc && npm run build:rust-debug",
     "build:rust": "npx cargo-cp-artifact -nc native/index.node -- cargo build --message-format=json-render-diagnostics",
     "build:rust-debug": "npm run build:rust --",
