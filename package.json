@@ -29,7 +29,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "Cargo.toml"
   ],
   "binary": {
     "module_name": "index",
