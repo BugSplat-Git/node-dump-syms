@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/test_data/linux/my-ubuntu-crasher ./out/my-ubuntu-crasher.sym",
     "prestart": "npm run build:debug && npm run pretest",
-    "prebuild": "mkdirp dist && mkdirp native",
+    "prebuild": "npm run clean",
     "build": "npm run build:tsc && npm run build:rust-release",
     "build:client": "npm run build && npm run copy:rust",
     "build:debug": "npm run build:tsc && npm run build:rust-debug",
@@ -14,6 +14,7 @@
     "build:rust-debug": "npm run build:rust --",
     "build:rust-release": "npm run build:rust -- --release",
     "build:tsc": "npx tsc",
+    "clean": "rimraf dist && rimraf native && mkdirp dist && mkdirp native",
     "copy:rust": "npx copyfiles native/index.node dist",
     "pretest": "rimraf out && mkdirp out",
     "test": "npm run test:rust && npm run test:tsc",
