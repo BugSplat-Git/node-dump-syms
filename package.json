@@ -8,7 +8,7 @@
     "prestart": "npm run build:debug && npm run pretest",
     "prebuild": "npm run clean",
     "build": "npm run build:tsc && npm run build:rust-release",
-    "build:client": "npm run build && npm run copy:rust",
+    "build:client": "npm run build:rust-release && npm run copy:rust",
     "build:debug": "npm run build:tsc && npm run build:rust-debug",
     "build:rust": "npx cargo-cp-artifact -nc native/index.node -- cargo build --message-format=json-render-diagnostics",
     "build:rust-debug": "npm run build:rust --",
