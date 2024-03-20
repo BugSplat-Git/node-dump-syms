@@ -1,0 +1,23 @@
+[package]
+name = "node-dump-syms"
+version = "3.0.0"
+description = "Neon wrapper for Mozilla's dump_syms"
+authors = ["@bobbyg603"]
+license = "MIT"
+edition = "2021"
+exclude = ["index.node"]
+
+[lib]
+crate-type = ["cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dump_syms = "2.3.1"
+neon = "1"
+regex = "1.5.4"
+once_cell = "1.9.0"
+tempfile = "3.3.0"
+num_cpus = "1.13"
+log = "0.4"
+simple_logger = "4.3.3"

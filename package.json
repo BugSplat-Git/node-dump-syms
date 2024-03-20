@@ -1,41 +1,67 @@
 {
   "name": "node-dump-syms",
-  "version": "2.0.0",
-  "description": "Utility for running Breakpad's dump_syms via Node.js",
-  "main": "./dist/index.js",
-  "bin": {
-    "node-dump-syms": "./dist/bin/index.js"
+  "version": "3.0.0",
+  "description": "Neon wrapper for Mozilla's dump_syms",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/test_data/linux/my-ubuntu-crasher ./out.sym",
+    "prestart": "npm run build:debug",
+    "prebuild": "mkdirp dist && mkdirp native",
+    "postbuild": "copyfiles native/index.node dist",
+    "postbuild:debug": "copyfiles native/index.node dist",
+    "build": "npm run build:tsc && npm run build:rust-release",
+    "build:debug": "npm run build:tsc && npm run build:rust-debug",
+    "build:rust": "cargo-cp-artifact -nc native/index.node -- cargo build --message-format=json-render-diagnostics",
+    "build:rust-debug": "npm run build:rust --",
+    "build:rust-release": "npm run build:rust -- --release",
+    "build:tsc": "tsc",
+    "pretest": "rimraf out && mkdirp out",
+    "test": "npm run test:rust && npm run test:tsc",
+    "test:rust": "cargo test",
+    "test:tsc": "ts-node ./node_modules/.bin/jasmine",
+    "install": "node-pre-gyp install --fallback-to-build=false || npm run build",
+    "upload-binary": "npm run build && node-pre-gyp package && node-pre-gyp-github publish"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
-  "scripts": {
-    "prestart": "mkdirp ./out",
-    "start": "ts-node ./bin/index.ts ./spec/support/darwin/addon.node ./out/addon.node.sym darwin",
-    "build": "tsc && copyfiles ./bin/**/* -e ./bin/index.ts dist",
-    "test": "ts-node ./node_modules/.bin/jasmine",
-    "prerelease": "npm run build",
-    "release": "npm publish --access public"
+  "binary": {
+    "module_name": "index",
+    "module_path": "./dist/native",
+    "host": "https://github.com/BugSplat-Git/node-dump-syms/releases/download/",
+    "remote_path": "v{version}",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz"
   },
-  "keywords": [
-    "crashpad",
-    "breakpad",
-    "symbols",
-    "sym",
-    "pdb",
-    "so",
-    "dll",
-    "dSYM"
-  ],
-  "author": "BugSplat",
+  "author": "@bobbyg603",
   "license": "MIT",
   "devDependencies": {
-    "@types/jasmine": "^4.3.1",
-    "@types/node": "^18.11.17",
+    "@types/jasmine": "^5.1.4",
+    "@types/node": "^20.11.29",
+    "cargo-cp-artifact": "^0.1",
     "copyfiles": "^2.4.1",
-    "jasmine": "^4.5.0",
-    "mkdirp": "^2.1.6",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.4"
-  }
+    "jasmine": "^5.1.0",
+    "mkdirp": "^3.0.1",
+    "node-pre-gyp": "^0.17.0",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BugSplat-Git/node-dump-syms.git"
+  },
+  "keywords": [
+    "breakpad",
+    "crashpad",
+    "sym",
+    "mozilla",
+    "minidump",
+    "crash",
+    "bugsplat"
+  ],
+  "bugs": {
+    "url": "https://github.com/BugSplat-Git/node-dump-syms/issues"
+  },
+  "homepage": "https://github.com/BugSplat-Git/node-dump-syms#readme"
 }

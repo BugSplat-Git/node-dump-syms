@@ -1,14 +1,12 @@
 #! /usr/bin/env node
-import { Platform, dumpSyms } from "../src/dump-syms";
-import fs from 'fs';
+import { dumpSyms } from "../src/dump";
+import { existsSync } from 'node:fs';
 
 const { argv } = process;
-const availablePlatforms = Object.keys(Platform).join(', ');
-const inputFilePath = argv.at(-3)!;
-const outputFilePath = argv.at(-2)!;
-const platform = argv.at(-1)! as Platform;
+const inputFilePath = argv.at(-2)!;
+const outputFilePath = argv.at(-1)!;
 
-if (!fs.existsSync(inputFilePath)) {
+if (!existsSync(inputFilePath)) {
     logErrorAndExit(`File doesn't exist at path ${inputFilePath}`);
 }
 
@@ -16,26 +14,10 @@ if (!outputFilePath) {
     logErrorAndExit(`Please specify an output file path`);
 }
 
-if (!validPlatform(platform)) {
-    logErrorAndExit(`Please specify a platform, valid platforms: ${availablePlatforms}`);
-}
-
-(async () => {
-    const { stdout, stderr } = await dumpSyms(inputFilePath, outputFilePath, platform);
-    
-    console.log(stdout);
-    console.error(stderr);
-    
-    if (stderr) {
-        process.exit(-1);
-    }
-})();
+dumpSyms(inputFilePath, outputFilePath);
 
 function logErrorAndExit(message: string) {
     console.error(message);
     process.exit(-1);
 }
 
-function validPlatform(platform: string): platform is Platform {
-    return Boolean(platform && Object.keys(Platform).includes(platform as Platform));
-}

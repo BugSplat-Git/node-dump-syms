@@ -13,7 +13,13 @@
 
 ## 👋 Introduction
 
-node-dump-syms is a thin wrapper around the [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/) dump_syms utility that allows dump_syms to be added to your project via [npm](https://www.npmjs.com/). This package can be invoked via the `node-dump-syms` command-line command, or used as a library by importing `dumpSyms`.
+node-dump-syms is a thin wrapper around the Mozilla [dump_syms](https://crates.io/crates/dump_syms) crate that allows dump_syms to be added to your project via [npm](https://www.npmjs.com/). This package can be invoked via the `node-dump-syms` command-line command, or used as a library by importing `dumpSyms`.
+
+## ✅ Prerequisites
+
+This repo provides prebuilt native addons for node.js 18.x and 20.x on Windows, macOS, and Ubuntu Linux. If you are using a different version of Node.js or a different OS, you will need to build the native addon from source which requires the [rust](https://www.rust-lang.org/tools/install) toolchain. Once you have installed rust, you can build the native addon from source by re-running `npm i`.
+
+If you would like to request a prebuilt binary for a different version of Node.js or a different OS, please open an [issue](https://github.com/BugSplat-Git/node-dump-syms/issues).
 
 ## 🏗️ Installation
 
@@ -34,31 +40,23 @@ npm i -g node-dump-syms
 If you installed `node-dump-syms` globally you can invoke it in via a terminal window.
 
 ```sh
-node-dump-syms /path/to/file.so /output/file.so.sym darwin
+node-dump-syms /path/to/file.so /output/file.so.sym
 ```
 
-The first argument is the path to your executable or library file. The second argument is the path to the output file. The third argument is the platform. The platform can be one of the following: `darwin`, `amazonlinux`, `bullseye`.
-
-For additional platform support, please [open an issue](https://github.com/BugSplat-Git/node-dump-syms/issues/new).
+The first argument is the path to your binary file. The second argument is the path to write the output sym file.
 
 ## 📚 Library
 
 Import or require `dumpSyms`.
 
 ```ts
-import { dumpSyms, dumpSymsSync } from 'node-dump-syms'
+import { dumpSyms } from 'node-dump-syms'
 ```
 
-Await a call to `dumpSyms`, providing it a path to your executable or library file, an output path for the `.sym` file, and the `dump_syms` platform binary you'd like to use.
+Call `dumpSyms`, providing it a path to your binary file, an output path for the `.sym` file.
 
 ```ts
-await dumpSyms('/path/to/file.so', '/output/file.so.sym', 'darwin');
-```
-
-You can also call `dumpSymsSync` to perform the same operation synchronously.
-
-```ts
-dumpSymsSync('/path/to/file.so', '/output/file.so.sym', 'darwin');
+dumpSyms('/path/to/file.so', '/output/file.so.sym');
 ```
 
 ## 🐛 About

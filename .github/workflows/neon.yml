@@ -1,0 +1,32 @@
+name: Publish Prebuilt Binaries
+
+on:
+    push:
+        tags:
+        - 'v*'
+
+jobs:
+  build-and-publish:
+    name: Build and Publish for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+        node-version: [18, 20]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Install dependencies
+      run: |
+        npm ci
+        npm i -g @mapbox/node-pre-gyp @bugsplat/node-pre-gyp-github
+    - name: Build native addon with neon
+      run: npm run build
+    - name: Publish to GitHub
+      env:
+        NODE_PRE_GYP_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run upload-binary
