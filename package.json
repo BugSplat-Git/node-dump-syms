@@ -4,11 +4,9 @@
   "description": "Neon wrapper for Mozilla's dump_syms",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/test_data/linux/my-ubuntu-crasher ./out.sym",
-    "prestart": "npm run build:debug",
+    "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/test_data/linux/my-ubuntu-crasher ./out/my-ubuntu-crasher.sym",
+    "prestart": "npm run build:debug && npm run pretest",
     "prebuild": "mkdirp dist && mkdirp native",
-    "postbuild": "copyfiles native/index.node dist",
-    "postbuild:debug": "copyfiles native/index.node dist",
     "build": "npm run build:tsc && npm run build:rust-release",
     "build:debug": "npm run build:tsc && npm run build:rust-debug",
     "build:rust": "cargo-cp-artifact -nc native/index.node -- cargo build --message-format=json-render-diagnostics",
@@ -20,7 +18,11 @@
     "test:rust": "cargo test",
     "test:tsc": "ts-node ./node_modules/.bin/jasmine",
     "install": "node-pre-gyp install --fallback-to-build=false || npm run build",
-    "upload-binary": "npm run build && node-pre-gyp package && node-pre-gyp-github publish"
+    "preupload-binary": "rimraf build && npm run build && copyfiles native/index.node dist",
+    "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
+    "postupload-binary": "rimraf dist/native",
+    "prerelease": "npm run build",
+    "release": "npm publish --access public"
   },
   "files": [
     "dist",

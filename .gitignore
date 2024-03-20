@@ -1,9 +1,7 @@
-dist
-out
-node_modules
 .DS_Store
-target
-index.node
-out.sym
+node_modules
 build
+dist
 native
+out
+target
