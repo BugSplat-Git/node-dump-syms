@@ -2,7 +2,7 @@
   "name": "node-dump-syms",
   "version": "3.0.4",
   "description": "Neon wrapper for Mozilla's dump_syms",
-  "main": "index.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/test_data/linux/my-ubuntu-crasher ./out/my-ubuntu-crasher.sym",
     "prestart": "npm run build:debug && npm run pretest",
