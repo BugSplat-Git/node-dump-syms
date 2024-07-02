@@ -1,6 +1,6 @@
 {
   "name": "node-dump-syms",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Neon wrapper for Mozilla's dump_syms",
   "main": "./dist/index.js",
   "scripts": {
