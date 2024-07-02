@@ -11,6 +11,7 @@ use dump_syms::utils;
 
 use dump_syms::dumper::{self, Config};
 
+#[allow(dead_code)]
 #[allow(clippy::large_enum_variant)]
 pub(crate) enum Action<'a> {
     Dump(Config<'a>),
