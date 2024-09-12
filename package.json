@@ -21,7 +21,7 @@
     "test": "npm run test:rust && npm run test:tsc",
     "test:rust": "cargo test",
     "test:tsc": "ts-node ./node_modules/.bin/jasmine",
-    "install": "node-pre-gyp install --fallback-to-build=false || npm run build:client",
+    "install": "npx @mapbox/node-pre-gyp install --fallback-to-build=false || npm run build:client",
     "preupload-binary": "rimraf build && npm run build && npm run copy:rust",
     "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
     "postupload-binary": "rimraf dist/native",
