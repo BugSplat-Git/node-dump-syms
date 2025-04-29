@@ -3,6 +3,9 @@
   "version": "3.0.10",
   "description": "Neon wrapper for Mozilla's dump_syms",
   "main": "./dist/index.js",
+  "bin": {
+    "node-dump-syms": "./dist/bin/index.js"
+  },
   "scripts": {
     "start": "ts-node ./bin/index.ts RUST_BACKTRACE=1 ./spec/test_data/linux/my-ubuntu-crasher ./out/my-ubuntu-crasher.sym",
     "prestart": "npm run build:debug && npm run pretest",
@@ -19,6 +22,7 @@
     "copy:rust": "npx copyfiles native/index.node dist",
     "pretest": "rimraf out && mkdirp out",
     "test": "npm run test:rust && npm run test:tsc",
+    "pretest:rust": "npm run build:rust-debug",
     "test:rust": "cargo test",
     "test:tsc": "ts-node ./node_modules/.bin/jasmine",
     "install": "npx @mapbox/node-pre-gyp install --fallback-to-build=false || npm run build:client",
@@ -46,7 +50,7 @@
     "@bugsplat/node-pre-gyp-github": "^1.4.5",
     "@mapbox/node-pre-gyp": "^1.0.11",
     "@types/jasmine": "^5.1.4",
-    "@types/node": "^20.11.29",
+    "@types/node": "^20.17.32",
     "cargo-cp-artifact": "^0.1.9",
     "copyfiles": "^2.4.1",
     "jasmine": "^5.1.0",
