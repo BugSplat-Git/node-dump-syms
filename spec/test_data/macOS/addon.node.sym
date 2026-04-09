@@ -1,0 +1,223 @@
+MODULE Mac arm64 B7EBC13028993DE9A52CCAC5C2BB11120 addon.node
+INFO CODE_ID B7EBC13028993DE9A52CCAC5C2BB1112
+PUBLIC 4470 0 example::_register_addon()
+PUBLIC 448c 0 example::add(int, int)
+PUBLIC 44ac 0 example::addWrapped(Napi::CallbackInfo const&)
+PUBLIC 4678 0 Napi::CallbackInfo::Env() const
+PUBLIC 46a8 0 Napi::CallbackInfo::Length() const
+PUBLIC 46c0 0 Napi::CallbackInfo::operator[](unsigned long) const
+PUBLIC 4748 0 Napi::Value::IsNumber() const
+PUBLIC 4778 0 Napi::TypeError::New(napi_env__*, char const*)
+PUBLIC 47d4 0 Napi::Env::operator napi_env__*() const
+PUBLIC 47ec 0 Napi::Error::ThrowAsJavaScriptException() const
+PUBLIC 4934 0 Napi::TypeError::~TypeError()
+PUBLIC 4960 0 Napi::Value::As<Napi::Number>() const
+PUBLIC 4998 0 Napi::Number::New(napi_env__*, double)
+PUBLIC 4a48 0 Napi::Number::Int32Value() const
+PUBLIC 4aec 0 example::Init(Napi::Env, Napi::Object)
+PUBLIC 4b68 0 Napi::Object::Set<Napi::Function>(char const*, Napi::Function const&)
+PUBLIC 4c54 0 Napi::Function::New<Napi::Number (*)(Napi::CallbackInfo const&)>(napi_env__*, Napi::Number (*)(Napi::CallbackInfo const&), char const*, void*)
+PUBLIC 4d60 0 example::__napi_Init(napi_env__*, napi_value__*)
+PUBLIC 4d94 0 Napi::RegisterModule(napi_env__*, napi_value__*, Napi::Object (*)(Napi::Env, Napi::Object))
+PUBLIC 4dd8 0 Napi::details::WrapCallback<Napi::RegisterModule(napi_env__*, napi_value__*, Napi::Object (*)(Napi::Env, Napi::Object))::{lambda()#1}>(Napi::RegisterModule(napi_env__*, napi_value__*, Napi::Object (*)(Napi::Env, Napi::Object))::{lambda()#1})
+PUBLIC 4e74 0 Napi::RegisterModule(napi_env__*, napi_value__*, Napi::Object (*)(Napi::Env, Napi::Object))::{lambda()#1}::operator()() const
+PUBLIC 4ef8 0 __clang_call_terminate
+PUBLIC 4f04 0 Napi::Env::Env(napi_env__*)
+PUBLIC m 4f38 0 Napi::String::String(napi_env__*, napi_value__*)
+PUBLIC 4f74 0 Napi::Value::operator napi_value__*() const
+PUBLIC 4f8c 0 Napi::Env::Env(napi_env__*)
+PUBLIC m 4fac 0 Napi::Value::Value(napi_env__*, napi_value__*)
+PUBLIC 4fe8 0 Napi::Value::Value(napi_env__*, napi_value__*)
+PUBLIC 5014 0 Napi::Env::Undefined() const
+PUBLIC 50e0 0 Napi::Error::New(napi_env__*)
+PUBLIC m 52f4 0 Napi::TypeError::~TypeError()
+PUBLIC 5320 0 Napi::Error::Fatal(char const*, char const*)
+PUBLIC 5348 0 Napi::Error::Error(napi_env__*, napi_value__*)
+PUBLIC 5384 0 Napi::Error::Error(napi_env__*, napi_value__*)
+PUBLIC 54a0 0 Napi::ObjectReference::ObjectReference(napi_env__*, napi_ref__*)
+PUBLIC 54dc 0 std::exception::exception()
+PUBLIC 5500 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string()
+PUBLIC 552c 0 Napi::ObjectReference::~ObjectReference()
+PUBLIC 5558 0 Napi::Error::~Error()
+PUBLIC 5588 0 Napi::Error::what() const
+PUBLIC 55b0 0 Napi::Reference<Napi::Object>::Reference(napi_env__*, napi_ref__*)
+PUBLIC 55e0 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string()
+PUBLIC 5624 0 std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::__compressed_pair<std::__1::__default_init_tag, std::__1::__default_init_tag>(std::__1::__default_init_tag&&)
+PUBLIC 5660 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__zero()
+PUBLIC 56c8 0 std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::__compressed_pair<std::__1::__default_init_tag, std::__1::__default_init_tag>(std::__1::__default_init_tag&&)
+PUBLIC 5718 0 std::__1::forward<std::__1::__default_init_tag>(std::__1::remove_reference<std::__1::__default_init_tag>::type&)
+PUBLIC 572c 0 std::__1::__compressed_pair_elem<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, 0, false>::__compressed_pair_elem(std::__1::__default_init_tag)
+PUBLIC 5740 0 std::__1::__compressed_pair_elem<std::__1::allocator<char>, 1, true>::__compressed_pair_elem(std::__1::__default_init_tag)
+PUBLIC 576c 0 std::__1::allocator<char>::allocator()
+PUBLIC 5798 0 std::__1::__non_trivial_if<true, std::__1::allocator<char> >::__non_trivial_if()
+PUBLIC 57ac 0 std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::first()
+PUBLIC 57d0 0 std::__1::__compressed_pair_elem<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, 0, false>::__get()
+PUBLIC 57e4 0 Napi::Reference<Napi::Object>::~Reference()
+PUBLIC 5858 0 Napi::Error::Message() const
+PUBLIC 5954 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::c_str() const
+PUBLIC 5978 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::size() const
+PUBLIC 59cc 0 Napi::ObjectReference::Get(char const*) const
+PUBLIC 5ab8 0 Napi::Value::As<Napi::String>() const
+PUBLIC 5af0 0 Napi::String::operator std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >() const
+PUBLIC 5b1c 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::operator=(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >&&)
+PUBLIC 5b50 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__is_long() const
+PUBLIC 5b84 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_long_size() const
+PUBLIC 5bac 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_short_size() const
+PUBLIC 5bd8 0 std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::first() const
+PUBLIC 5bfc 0 std::__1::__compressed_pair_elem<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, 0, false>::__get() const
+PUBLIC 5c10 0 Napi::EscapableHandleScope::EscapableHandleScope(Napi::Env)
+PUBLIC 5c44 0 Napi::EscapableHandleScope::Escape(napi_value__*)
+PUBLIC 5d08 0 Napi::Reference<Napi::Object>::Value() const
+PUBLIC 5df0 0 Napi::Object::Get(char const*) const
+PUBLIC 5eb4 0 Napi::EscapableHandleScope::~EscapableHandleScope()
+PUBLIC 5ee0 0 Napi::EscapableHandleScope::EscapableHandleScope(Napi::Env)
+PUBLIC 5f98 0 Napi::EscapableHandleScope::~EscapableHandleScope()
+PUBLIC m 6014 0 Napi::Function::Function(napi_env__*, napi_value__*)
+PUBLIC 6050 0 Napi::String::Utf8Value() const
+PUBLIC 6240 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::resize(unsigned long)
+PUBLIC 6270 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::operator[](unsigned long)
+PUBLIC 62a0 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::capacity() const
+PUBLIC 62f4 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_pointer()
+PUBLIC 6348 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_long_pointer()
+PUBLIC 6370 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_short_pointer()
+PUBLIC 6398 0 std::__1::pointer_traits<char*>::pointer_to(char&)
+PUBLIC 63bc 0 std::__1::addressof<char>(char&)
+PUBLIC 63d0 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_long_cap() const
+PUBLIC 63fc 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__move_assign(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >&, std::__1::integral_constant<bool, true>)
+PUBLIC 64c4 0 std::__1::allocator_traits<std::__1::allocator<char> >::deallocate(std::__1::allocator<char>&, char*, unsigned long)
+PUBLIC 64f8 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__alloc()
+PUBLIC 651c 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__move_assign_alloc(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >&)
+PUBLIC 6548 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__set_short_size(unsigned long)
+PUBLIC 6580 0 std::__1::char_traits<char>::assign(char&, char const&)
+PUBLIC 65a4 0 std::__1::allocator<char>::deallocate(char*, unsigned long)
+PUBLIC 65e4 0 std::__1::__libcpp_deallocate(void*, unsigned long, unsigned long)
+PUBLIC 6644 0 std::__1::__is_overaligned_for_new(unsigned long)
+PUBLIC 6664 0 std::__1::__do_deallocate_handle_size<std::align_val_t>(void*, unsigned long, std::align_val_t)
+PUBLIC 6694 0 std::__1::__do_deallocate_handle_size<>(void*, unsigned long, )
+PUBLIC 66bc 0 std::__1::__libcpp_operator_delete<void*, std::align_val_t>(void*, std::align_val_t)
+PUBLIC 66e8 0 std::__1::__libcpp_operator_delete<void*>(void*)
+PUBLIC 670c 0 std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::second()
+PUBLIC 6730 0 std::__1::__compressed_pair_elem<std::__1::allocator<char>, 1, true>::__get()
+PUBLIC 6744 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__move_assign_alloc(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >&, std::__1::integral_constant<bool, true>)
+PUBLIC 6780 0 std::__1::move<std::__1::allocator<char>&>(std::__1::allocator<char>&)
+PUBLIC 6794 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::data() const
+PUBLIC 67bc 0 std::__1::__to_address<char const>(char const*)
+PUBLIC 67d0 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_pointer() const
+PUBLIC 6824 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_long_pointer() const
+PUBLIC 684c 0 std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_short_pointer() const
+PUBLIC 6874 0 std::__1::pointer_traits<char const*>::pointer_to(char const&)
+PUBLIC 6898 0 std::__1::addressof<char const>(char const&)
+PUBLIC 68ac 0 Napi::Error::~Error()
+PUBLIC 6900 0 Napi::Value::Type() const
+PUBLIC 69c8 0 Napi::Value::IsEmpty() const
+PUBLIC 69ec 0 Napi::Error::New<Napi::TypeError>(napi_env__*, char const*, unsigned long, napi_status (*)(napi_env__*, napi_value__*, napi_value__*, napi_value__**))
+PUBLIC 6b20 0 Napi::TypeError::TypeError(napi_env__*, napi_value__*)
+PUBLIC 6b5c 0 Napi::TypeError::TypeError(napi_env__*, napi_value__*)
+PUBLIC 6bb0 0 Napi::TypeError::~TypeError()
+PUBLIC 6be0 0 Napi::HandleScope::HandleScope(Napi::Env)
+PUBLIC 6c14 0 Napi::Reference<Napi::Object>::IsEmpty() const
+PUBLIC 6c38 0 Napi::HandleScope::~HandleScope()
+PUBLIC 6c64 0 Napi::HandleScope::HandleScope(Napi::Env)
+PUBLIC 6d1c 0 Napi::HandleScope::~HandleScope()
+PUBLIC 6d98 0 Napi::CreateFunction<Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number> >(napi_env__*, char const*, napi_value__* (*)(napi_env__*, napi_callback_info__*), Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number>*, napi_value__**)
+PUBLIC 6e18 0 Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number>::Wrapper(napi_env__*, napi_callback_info__*)
+PUBLIC 6e54 0 Napi::details::AttachData<Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number> >(napi_env__*, napi_value__*, Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number>*, void (*)(napi_env__*, void*, void*), void*)
+PUBLIC 6f30 0 Napi::details::AttachData<Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number> >(napi_env__*, napi_value__*, Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number>*, void (*)(napi_env__*, void*, void*), void*)::{lambda(napi_env__*, void*, void*)#1}::operator void (*())(napi_env__*, void*, void*) const
+PUBLIC 6f48 0 Napi::details::AttachData<Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number> >(napi_env__*, napi_value__*, Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number>*, void (*)(napi_env__*, void*, void*), void*)::{lambda(napi_env__*, void*, void*)#1}::__invoke(napi_env__*, void*, void*)
+PUBLIC 6f80 0 Napi::details::AttachData<Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number> >(napi_env__*, napi_value__*, Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number>*, void (*)(napi_env__*, void*, void*), void*)::{lambda(napi_env__*, void*, void*)#1}::operator()(napi_env__*, void*, void*) const
+PUBLIC 6fc4 0 Napi::details::WrapCallback<Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number>::Wrapper(napi_env__*, napi_callback_info__*)::{lambda()#1}>(Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number>::Wrapper(napi_env__*, napi_callback_info__*)::{lambda()#1})
+PUBLIC 7088 0 Napi::details::CallbackData<Napi::Number (*)(Napi::CallbackInfo const&), Napi::Number>::Wrapper(napi_env__*, napi_callback_info__*)::{lambda()#1}::operator()() const
+PUBLIC 715c 0 Napi::CallbackInfo::CallbackInfo(napi_env__*, napi_callback_info__*)
+PUBLIC 7198 0 Napi::CallbackInfo::Data() const
+PUBLIC 71b0 0 Napi::CallbackInfo::SetData(void*)
+PUBLIC 71d0 0 Napi::CallbackInfo::~CallbackInfo()
+PUBLIC 71fc 0 Napi::CallbackInfo::CallbackInfo(napi_env__*, napi_callback_info__*)
+PUBLIC 73bc 0 Napi::CallbackInfo::~CallbackInfo()
+PUBLIC 741c 0 Napi::Value::From<Napi::Function>(napi_env__*, Napi::Function const&)
+PUBLIC 7458 0 Napi::details::vf_fallback<Napi::Function>::From(napi_env__*, Napi::Function const&)
+STACK CFI INIT 4470 1c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 448c 20 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 44ac 1cc .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^ x27: .cfa -24 + ^ x28: .cfa -32 + ^
+STACK CFI INIT 4678 30 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 46a8 18 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 46c0 114 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 47d4 18 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 47ec 148 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4934 64 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4998 b0 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4a48 a4 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4aec 7c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4b68 ec .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4c54 10c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4d60 78 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4dd8 9c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4e74 84 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4ef8 c .cfa: sp 0 +
+STACK CFI 4efc .cfa: sp 16 + .ra: .cfa -8 + ^ x29: .cfa -16 + ^
+STACK CFI INIT 4f04 70 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4f74 38 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 4fac 3c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 4fe8 2c .cfa: sp 32 + .ra: x30 0 +
+STACK CFI INIT 5014 cc .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 50e0 2a4 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5384 11c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 54a0 3c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 54dc 24 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 5500 b0 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 55b0 30 .cfa: sp 32 + .ra: x30 0 +
+STACK CFI INIT 55e0 44 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5624 f4 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5718 28 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 5740 58 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5798 14 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 57ac 24 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 57d0 14 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 57e4 74 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5858 fc .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5954 78 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 59cc ec .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5ab8 144 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5bfc 14 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 5c10 34 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5c44 c4 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5d08 e8 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5df0 c4 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5eb4 2c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5ee0 b8 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 5f98 7c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6014 3c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6050 1f0 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6240 17c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 63bc 14 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 63d0 1b0 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6580 24 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 65a4 40 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 65e4 60 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6644 20 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 6664 cc .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6730 14 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 6744 3c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6780 14 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 6794 28 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 67bc 14 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 67d0 c8 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6898 14 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 68ac 54 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6900 c8 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 69c8 24 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 69ec 134 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6b20 f4 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6c14 24 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 6c38 2c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6c64 b8 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6d1c 7c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6d98 198 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6f30 18 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 6f48 7c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 6fc4 c4 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 7088 d4 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 715c 3c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 7198 38 .cfa: sp 16 + .ra: x30 0 +
+STACK CFI INIT 71d0 2c .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 71fc 1c0 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
+STACK CFI INIT 73bc e5 .cfa: x29 16 + x29: .cfa -16 + ^ .ra: .cfa -8 + ^
