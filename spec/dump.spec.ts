@@ -1,6 +1,9 @@
 import { readFile } from "fs/promises";
 import path from "path";
+import { describe, it, expect } from "vitest";
 import { dumpSyms } from "../src/dump";
+
+const __dirname = import.meta.dirname;
 
 describe('dumpSyms', () => {
     it('should dump symbols for node addon', async () => {

@@ -2,7 +2,10 @@ import * as child_process from 'child_process';
 import { readFile } from 'fs/promises';
 import path from 'path';
 import util from 'util';
+import { describe, it, expect } from 'vitest';
+
 const exec = util.promisify(child_process.exec);
+const __dirname = import.meta.dirname;
 const testScript = path.join(__dirname, '..', 'bin', 'index.ts');
 
 describe('command line', () => {
@@ -10,7 +13,7 @@ describe('command line', () => {
         const fileName = 'addon.node';
         const binary = path.join(__dirname, 'test_data', 'macOS', fileName);
         const output = path.join(__dirname, '..', 'out', `${fileName}.sym`);
-        const { stdout, stderr } = await exec(`ts-node ${testScript} ${binary} ${output}`);
+        const { stdout, stderr } = await exec(`npx ts-node ${testScript} ${binary} ${output}`);
         const result = await readFile(output);
 
         expect(stderr?.trim()).toBeFalsy();
@@ -22,7 +25,7 @@ describe('command line', () => {
         const fileName = 'my-ubuntu-crasher';
         const binary = path.join(__dirname, 'test_data', 'linux', fileName);
         const output = path.join(__dirname, '..', 'out', `${fileName}.sym`);
-        const { stdout, stderr } = await exec(`ts-node ${testScript} ${binary} ${output}`);
+        const { stdout, stderr } = await exec(`npx ts-node ${testScript} ${binary} ${output}`);
         const result = await readFile(output);
 
         expect(stderr?.trim()).toBeFalsy();

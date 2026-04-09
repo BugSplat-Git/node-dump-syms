@@ -24,7 +24,7 @@
     "test": "npm run test:rust && npm run test:tsc",
     "pretest:rust": "npm run build:rust-debug",
     "test:rust": "cargo test",
-    "test:tsc": "ts-node ./node_modules/.bin/jasmine",
+    "test:tsc": "vitest run",
     "install": "npx @mapbox/node-pre-gyp install --fallback-to-build=false || npm run build:client",
     "preupload-binary": "rimraf build && npm run build && npm run copy:rust",
     "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
@@ -50,15 +50,14 @@
   "devDependencies": {
     "@bugsplat/node-pre-gyp-github": "^1.4.5",
     "@mapbox/node-pre-gyp": "^1.0.11",
-    "@types/jasmine": "^5.1.4",
     "@types/node": "^20.17.32",
     "cargo-cp-artifact": "^0.1.9",
     "copyfiles": "^2.4.1",
-    "jasmine": "^5.1.0",
     "mkdirp": "^3.0.1",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "vitest": "^4.1.4"
   },
   "repository": {
     "type": "git",
