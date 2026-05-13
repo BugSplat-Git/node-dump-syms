@@ -48,8 +48,8 @@
   "author": "@bobbyg603",
   "license": "MIT",
   "devDependencies": {
-    "@bugsplat/node-pre-gyp-github": "^1.4.5",
-    "@mapbox/node-pre-gyp": "^1.0.11",
+    "@bugsplat/node-pre-gyp-github": "^2.0.0",
+    "@mapbox/node-pre-gyp": "^2.0.3",
     "@types/node": "^20.17.32",
     "cargo-cp-artifact": "^0.1.9",
     "copyfiles": "^2.4.1",
@@ -75,5 +75,11 @@
   "bugs": {
     "url": "https://github.com/BugSplat-Git/node-dump-syms/issues"
   },
-  "homepage": "https://github.com/BugSplat-Git/node-dump-syms#readme"
+  "homepage": "https://github.com/BugSplat-Git/node-dump-syms#readme",
+  "overrides": {
+    "@octokit/plugin-paginate-rest": "^14.0.0",
+    "@octokit/request": "^10.0.0",
+    "@octokit/request-error": "^7.0.0",
+    "@octokit/endpoint": "^11.0.0"
+  }
 }
